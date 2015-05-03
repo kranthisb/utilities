@@ -1,0 +1,15 @@
+1. To compile
+ gradle assemble
+ 
+2. To Compile and deploy
+  gradle deploy
+  
+3. Curl Commands
+	a.  curl -v -X POST --data "username=test&password=test"  http://localhost:8080/authenticationservice-1/login/
+	b.  curl -v  http://localhost:8080/authenticationservice-1/test/
+	c.  curl -v --header "X-Auth-Token: eyJ1c2VybmFtZSI6InRlc3QiLCJleHBpcmVzVGltZVN0YW1wIjoxNDIwOTQ2NzAwODYyfQ==.Xbewtdpa9u7XPqsWK+TtdtgJx336sGXv8Tu2YJLdqC4=" http://localhost:8080/authenticationservice-1/test/
+ 
+ 4. Add the below entry in Tomcat/bin/catalina.sh
+ CATALINA_OPTS="-Denv=dev"
+ 
+ Note :  change it to respective variable when you deploy in different env. But ensure that the config file name (under resources) matches.

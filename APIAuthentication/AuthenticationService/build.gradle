@@ -1,0 +1,49 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'findbugs'
+
+group = 'com.aexp.bigdata.platform'
+version = '1'
+
+description = "authenticationservice"
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+task deploy (dependsOn: assemble) {
+	copy{
+	    from "build/libs"
+    	into "/Users/kborra/Documents/Software/apache-tomcat-7.0.57/webapps/"
+	    include "*.war"
+	}
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+ }
+
+war {
+    webXml = file('WebContent/WEB-INF/web.xml') // copies a file to WEB-INF/web.xml
+}
+
+repositories {
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+	providedCompile files('./lib/javax.servlet-3.0.0.jar')
+    compile(group: 'org.jboss.resteasy', name: 'resteasy-jaxrs', version:'3.0.4.Final')
+	compile group: 'org.jboss.resteasy', name: 'resteasy-jackson-provider', version:'3.0.4.Final'
+    compile group: 'log4j', name: 'log4j', version:'1.2.17'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.2.3'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version:'2.3.1'
+    compile group: 'org.springframework', name: 'spring-core', version:'3.2.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version:'3.2.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'3.2.8.RELEASE'    
+    compile group: 'javax.inject', name: 'javax.inject', version:'1'  
+}
