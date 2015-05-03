@@ -1,0 +1,47 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'findbugs'
+
+group = 'com.aexp.bigdata.platform'
+version = '1'
+
+description = "authenticationclient"
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+    }
+ }
+
+//create a single Jar with all dependencies
+
+task fatJar(type: Jar) {
+	baseName = "authenticationclient"
+	
+    dependsOn configurations.runtime
+    from {
+        (configurations.runtime - configurations.providedCompile).collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    with jar
+}
+
+repositories {
+     maven { url "http://repo1.maven.apache.org/maven2" }
+}
+
+dependencies {
+	providedCompile files('./lib/javax.servlet-3.0.0.jar')
+	compile group: 'org.jboss.resteasy', name: 'resteasy-jaxrs', version:'3.0.4.Final'
+    compile group: 'org.jboss.resteasy', name: 'resteasy-client', version:'3.0.4.Final'
+    compile group: 'org.jboss.resteasy', name: 'resteasy-jackson-provider', version:'3.0.4.Final'
+    compile group: 'log4j', name: 'log4j', version:'1.2.17'   
+}

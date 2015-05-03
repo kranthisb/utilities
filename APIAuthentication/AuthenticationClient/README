@@ -1,0 +1,18 @@
+1. To compile..
+	
+	gradle clean
+	gradle fatJar
+
+	Note :  Ensure that Servlet-api.jar is not included in the final jar file. Gradle build file is anyways updated to ignore this.	
+	
+2. Distribute this jar file to all the Services except AuthenticationService. THis need to go into the class path of all the services
+	
+	Ref: FeedManagerService.
+		a. Copy the latest authenticationclient.jar into Webcontent/WEB-INT/lib directory of this project
+	
+		b. The following entry is added in the gradle file in-order to include this in the war 
+			file compile fileTree(dir: 'WebContent/WEB-INF/lib', include: '*.jar') 	
+			
+3. Add the below entry in Tomcat/bin/catalina.sh
+	CATALINA_OPTS="-Denv=dev"			
+	Note :  change it to respective variable when you deploy in different env. But ensure that the config file name (under resources) matches.
