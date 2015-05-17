@@ -1,0 +1,12 @@
+Notes:
+
+- This html utility is to upload File from the UI to the web server
+- WebServer (REST API using RESTEasy) provides a handle /upload in the TestController.java. This handle is invoked when you upload the file.
+- File contents are read from the form and written into /tmp directory. You can change the destination directory by changing the UPLOADED_FILE_PATH variable in the TestController.java class.
+
+
+
+1) Compile :  cd FileUploadService;
+	      mvn clean package
+2) Copy target/Upload-1.war into your webserver directory (ex: apache-tomcat-7.X/webapps)
+3) Launch the HTML file in the html directory

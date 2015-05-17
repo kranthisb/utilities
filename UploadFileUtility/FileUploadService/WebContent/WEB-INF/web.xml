@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>UploadService</display-name>
+  <servlet-mapping>
+    <servlet-name>upload-servlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>upload-servlet</servlet-name>
+    <servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+  </servlet>
+  <context-param>
+		<param-name>resteasy.resources</param-name>
+		<param-value>com.kranthi.controller.TestController</param-value>
+	</context-param>
+  <listener>
+    <listener-class>
+			org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
+			</listener-class>
+  </listener>
+</web-app>
