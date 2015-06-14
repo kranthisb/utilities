@@ -1,0 +1,148 @@
+form {
+    display:inline;
+    margin-left: -54px;
+}
+
+
+h2{
+  	width: 208px;
+  	margin-left: 42px;
+    margin-bottom: 40px;
+}
+
+.lineitemslist{
+	visibility: hidden;
+}
+#uploadbutton {
+  height: 25px;
+  width: 76px;
+  background-color: rgb(46, 75, 150);
+  font-family: arial;
+  font-weight: bold;
+  /* font-style: initial; */
+  color: #B36416;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 28px;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-left: -34px;
+  }
+  
+input{
+/* 	vertical-align:middle; */
+	  margin-left: -57px;
+}
+
+.list {
+	font-family:garamond;
+	color:#cc0000;
+}
+
+.boxed {
+  border: 1px solid green;
+  padding: 17px;
+  position: relative;
+  margin-top: 100px;
+  margin-left: 370px;
+  margin-right: 370px;
+}
+
+.header{
+  padding: 17px;
+  position: relative;
+  margin-top: -30px;
+  margin-left: 63px;
+  margin-right: 370px;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #4a4a4d;
+  font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+  margin-top: 4px;
+  margin-left: 23px;
+}
+th,
+td {
+  padding: 10px 15px;
+  vertical-align: middle;
+}
+
+
+
+
+thead {
+  background: #395870;
+  background: linear-gradient(#49708f, #293f50);
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+th:first-child {
+  border-top-left-radius: 5px;
+  text-align: left;
+    padding: 19px 37px;
+}
+
+th:last-child {
+  border-top-right-radius: 5px;
+  
+}
+tbody tr:nth-child(even) {
+  background: #f0f0f2;
+}
+
+tbody tr:last-child {
+   background: #395870;
+  background: linear-gradient(#49708f, #293f50);
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+td {
+  text-align: left;
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+  height: 40px;
+}
+
+td:first-child {
+  border-left: 1px solid #cecfd5;
+}
+
+.date {
+  color: #395870;
+  display: block;
+}
+.text-offset {
+  color: #7c7c80;
+  font-size: 12px;
+}
+.description{
+  text-align: left;
+/*    padding: 19px 107px; */
+}
+.price {
+  text-align: right;
+}
+.item-multiple {
+  display: block;
+}
+tfoot {
+  text-align: right;
+}
+tfoot tr:last-child {
+  background: #f0f0f2;
+  color: #395870;
+  font-weight: bold;
+}
+tfoot tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+tfoot tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+} 
